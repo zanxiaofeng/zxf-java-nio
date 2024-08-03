@@ -1,0 +1,17 @@
+# Key classes of Buffer
+- java.nio.Buffer
+- sun.nio.ch.DirectBuffer
+- java.nio.ByteBuffer
+- java.nio.CharBuffer
+- java.nio.DoubleBuffer
+- java.nio.FloatBuffer
+- java.nio.IntBuffer
+- java.nio.LongBuffer
+- java.nio.ShortBuffer
+- java.nio.HeapByteBuffer
+- java.nio.HeapByteBufferR
+- java.nio.MappedByteBuffer
+- java.nio.DirectByteBuffer
+- java.nio.DirectByteBufferR
+- java.nio.InvalidMarkException
+- java.nio.ReadOnlyBufferException
