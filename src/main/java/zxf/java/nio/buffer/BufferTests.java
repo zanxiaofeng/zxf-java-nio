@@ -13,6 +13,8 @@ public class BufferTests {
         testBufferInvalidMark();
         testBufferRead();
         testBufferWrite();
+        testBufferDirect();
+        testBufferClear();
     }
 
     private static void testBufferCapacity() {
@@ -128,6 +130,25 @@ public class BufferTests {
         byteBuffer.put((byte) 2);
 
         System.out.printf("ByteBuffer.write after write 2. capacity=%d, limit=%d, position=%d, readonly=%b, direct=%b\n",
+                byteBuffer.capacity(), byteBuffer.limit(), byteBuffer.position(), byteBuffer.isReadOnly(), byteBuffer.isDirect());
+    }
+
+    private static void testBufferDirect() {
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(5);
+        System.out.printf("ByteBuffer.direct. capacity=%d, limit=%d, position=%d, readonly=%b, direct=%b\n",
+                byteBuffer.capacity(), byteBuffer.limit(), byteBuffer.position(), byteBuffer.isReadOnly(), byteBuffer.isDirect());
+    }
+
+    private static void testBufferClear() {
+        ByteBuffer byteBuffer = ByteBuffer.wrap(new byte[]{1, 2, 3});
+
+        byteBuffer.position(1);
+        byteBuffer.limit(2);
+        System.out.printf("ByteBuffer.clear after init. capacity=%d, limit=%d, position=%d, readonly=%b, direct=%b\n",
+                byteBuffer.capacity(), byteBuffer.limit(), byteBuffer.position(), byteBuffer.isReadOnly(), byteBuffer.isDirect());
+
+        byteBuffer.clear();
+        System.out.printf("ByteBuffer.clear after clear. capacity=%d, limit=%d, position=%d, readonly=%b, direct=%b\n",
                 byteBuffer.capacity(), byteBuffer.limit(), byteBuffer.position(), byteBuffer.isReadOnly(), byteBuffer.isDirect());
     }
 }
